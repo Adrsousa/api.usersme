@@ -1,9 +1,14 @@
-from flask import Flask, jsonify, request 
-app = Flask(__name__) 
+from flask import Flask
+from flask_restful import Resource, Api
 
-@app.route('/users', methods=['GET'])
-def test():
-	return jsonify({'message' : 'Aqui serao listados todos os usuarios!'})
+app = Flask(__name__)
+api = Api(app)
+
+class UsersMe(Resource):
+    def get(self):
+        return {'hello': 'Aqui serao retornados todos os usuarios'}
+
+api.add_resource(UsersMe, '/Users')
 
 if __name__ == '__main__':
-	app.run() 
+	app.run(debug=True, port=8080) 
