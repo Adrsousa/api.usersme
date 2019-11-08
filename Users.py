@@ -6,7 +6,7 @@ api = Api(app)
 
 class UsersMe(Resource):
     def get(self):
-        return {'hello': 'Aqui serao retornados todos os usuarios'}
+        return {'Message': 'Aqui serao retornados todos os usuarios'}
 
 api.add_resource(UsersMe, '/Users')
 
